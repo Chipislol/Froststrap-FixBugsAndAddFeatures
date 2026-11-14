@@ -6,7 +6,7 @@ using Froststrap.Integrations;
 
 namespace Froststrap
 {
-    internal class Watcher : IDisposable
+    internal sealed class Watcher : IDisposable
     {
         private readonly InterProcessLock _lock = new("Watcher");
 

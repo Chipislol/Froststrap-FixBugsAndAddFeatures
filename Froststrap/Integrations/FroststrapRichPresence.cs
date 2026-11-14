@@ -12,7 +12,7 @@ using Froststrap.Integrations.Discord;
 
 namespace Froststrap.Integrations
 {
-    internal class FroststrapRichPresence : IDisposable
+    internal sealed class FroststrapRichPresence : IDisposable
     {
         private readonly DiscordRpcClient? _rpcClient;
         private readonly Timestamps _startTimestamps;

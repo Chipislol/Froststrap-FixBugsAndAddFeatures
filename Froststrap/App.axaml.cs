@@ -19,7 +19,7 @@ using Velopack;
 
 namespace Froststrap;
 
-internal partial class App : Application
+internal sealed partial class App : Application
 {
     public static bool AboutOpen;
     private void About_OnClick(object? sender, EventArgs e)

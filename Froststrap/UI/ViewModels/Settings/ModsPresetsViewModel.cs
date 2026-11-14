@@ -17,7 +17,7 @@ using Windows.Win32.Foundation;
 
 namespace Froststrap.UI.ViewModels.Settings
 {
-    internal class ModsPresetsViewModel : NotifyPropertyChangedViewModel
+    internal sealed class ModsPresetsViewModel : NotifyPropertyChangedViewModel
     {
         public event EventHandler? OpenModsEvent;
         public event EventHandler? OpenCommunityModsEvent;

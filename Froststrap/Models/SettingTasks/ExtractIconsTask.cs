@@ -8,7 +8,7 @@ using Froststrap.Utility;
 
 namespace Froststrap.Models.SettingTasks
 {
-    internal class ExtractIconsTask : BoolBaseTask
+    internal sealed class ExtractIconsTask : BoolBaseTask
     {
         private static string IconPath => Path.Combine(Paths.Base, Strings.Paths_Icons);
 

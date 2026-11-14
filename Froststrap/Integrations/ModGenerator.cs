@@ -40,11 +40,11 @@ namespace Froststrap.Integrations
             Strict = ["gradient/gradient_0_100"]
         };
 
-        internal record GradientStop(float Stop, Color Color);
+        internal sealed record GradientStop(float Stop, Color Color);
 
-        internal record SpriteDef(string Name, int X, int Y, int W, int H);
+        internal sealed record SpriteDef(string Name, int X, int Y, int W, int H);
 
-        private class SpriteBlacklist
+        private sealed class SpriteBlacklist
         {
             public List<string> Prefixes { get; set; } = [];
             public List<string> Suffixes { get; set; } = [];

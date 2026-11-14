@@ -7,7 +7,7 @@ using System.Runtime.Versioning;
 namespace Froststrap.Integrations
 {
     [SupportedOSPlatform("windows")]
-    internal class IntegrationWatcher : IDisposable
+    internal sealed class IntegrationWatcher : IDisposable
     {
         private readonly ActivityWatcher _activityWatcher;
         private readonly WindowManipulation? _windowManipulation;

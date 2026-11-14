@@ -13,7 +13,7 @@ using System.Net.Sockets;
 
 namespace Froststrap.Integrations
 {
-    internal class StudioDiscordRichPresence : IDisposable
+    internal sealed class StudioDiscordRichPresence : IDisposable
     {
         private readonly DiscordRpcClient? _rpcClient;
         private readonly ActivityWatcher _activityWatcher;

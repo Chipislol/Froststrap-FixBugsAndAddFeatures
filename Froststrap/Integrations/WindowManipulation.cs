@@ -10,7 +10,7 @@ using Windows.Win32.UI.WindowsAndMessaging;
 namespace Froststrap.Integrations
 {
     [SupportedOSPlatform("windows5.0")]
-    internal class WindowManipulation : IDisposable
+    internal sealed class WindowManipulation : IDisposable
     {
         private const uint WINEVENT_OUTOFCONTEXT = 0x0;
         private const uint EVENT_OBJECT_NAMECHANGE = 0x800C;

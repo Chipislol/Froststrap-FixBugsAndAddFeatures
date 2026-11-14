@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace Froststrap.UI.Elements.Settings
 {
-    internal partial class MainWindow : Base.AvaloniaWindow
+    internal sealed partial class MainWindow : Base.AvaloniaWindow
     {
         protected override bool ApplyTopPadding => false;
         public static MainWindow? Instance { get; private set; }

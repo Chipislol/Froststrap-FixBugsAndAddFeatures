@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace Froststrap
 {
-    internal class CookiesManager
+    internal sealed class CookiesManager
     {
         private CookieState _state = CookieState.Unknown;
 

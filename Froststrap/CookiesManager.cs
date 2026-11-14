@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MPL-2.0
 
 using Froststrap.RobloxInterfaces;
+using System.Runtime.Versioning;
 using System.Security.Cryptography;
 
 namespace Froststrap
@@ -143,6 +144,7 @@ namespace Froststrap
             }
         }
 
+        [SupportedOSPlatform("windows")]
         private static async Task<string> LoadWindowsCookies()
         {
             string content = await File.ReadAllTextAsync(CookiesPath);

@@ -337,16 +337,22 @@ internal partial class App : Application
         return false;
     }
 
-#pragma warning disable CS0162
-    public static async Task AssertWindowsAUMIDAsync()
+    public static Task AssertWindowsAUMIDAsync()
+    {
+#if DEBUG
+        /// Return early just becasue of if this runs in debug this might fuck shit up
+        /// Would be good to though make it more robust so this doesn't need to happen
+        Logger.Debug("Skipping AUMID verification in Debug builds.");
+        return Task.CompletedTask;
+#else
+        return AssertWindowsAUMIDImplAsync();
+#endif
+    }
+
+    private static async Task AssertWindowsAUMIDImplAsync()
     {
         if (!OperatingSystem.IsWindows())
             return;
-#if DEBUG
-        return;
-        /// Return early just becasue of if this runs in debug this might fuck shit up
-        /// Would be good to though make it more robust so this doesn't need to happen
-#endif
 
         Logger.Debug("Verifying AUMID creation");
 
@@ -382,7 +388,6 @@ internal partial class App : Application
         aumidKey.SetValue("IconUri", iconPath);
         Logger.Info("Created AUMID registry key.");
     }
-#pragma warning restore CS0162
 
     public static void ApplyAnimationSettings()
     {

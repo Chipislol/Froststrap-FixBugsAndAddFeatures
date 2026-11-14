@@ -180,6 +180,9 @@ namespace Froststrap.UI.ViewModels.Settings
 
         public static void ShowFileProperties(string filePath, string tabName)
         {
+            if (!OperatingSystem.IsWindowsVersionAtLeast(5, 1, 2600))
+                return;
+
             _ = PInvoke.SHObjectProperties(
                 HWND.Null,
                 (Windows.Win32.UI.Shell.SHOP_TYPE)SHOP_FILEPATH,

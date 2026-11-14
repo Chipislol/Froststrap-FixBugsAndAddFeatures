@@ -64,7 +64,8 @@ namespace Froststrap.Integrations
         public void SetEnabled(bool enabled)
         {
             _isEnabled = enabled;
-            if (!enabled)
+
+            if (!enabled && OperatingSystem.IsWindows())
             {
                 ClearState();
             }
@@ -190,6 +191,7 @@ namespace Froststrap.Integrations
             }
         }
 
+        [SupportedOSPlatform("windows")]
         private void HandleKeyDownHorizontal(bool isLeft)
         {
             if (isLeft)
@@ -222,6 +224,7 @@ namespace Froststrap.Integrations
             }
         }
 
+        [SupportedOSPlatform("windows")]
         private void HandleKeyUpHorizontal(bool isLeft)
         {
             if (isLeft)
@@ -258,6 +261,7 @@ namespace Froststrap.Integrations
             }
         }
 
+        [SupportedOSPlatform("windows")]
         private void HandleKeyDownVertical(bool isUp)
         {
             if (isUp)
@@ -290,6 +294,7 @@ namespace Froststrap.Integrations
             }
         }
 
+        [SupportedOSPlatform("windows")]
         private void HandleKeyUpVertical(bool isUp)
         {
             if (isUp)
@@ -326,6 +331,7 @@ namespace Froststrap.Integrations
             }
         }
 
+        [SupportedOSPlatform("windows")]
         private void ClearState()
         {
             if (_activeHorizontal == ActiveHorizontal.Left) SendKey((int)_keyLeft, false);

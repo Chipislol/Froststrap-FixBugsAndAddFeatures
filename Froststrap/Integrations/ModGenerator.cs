@@ -6,6 +6,7 @@
 // TODO: Clean up this, possible rip apart code and do
 //       class seperation using partial implemntations
 
+using System.Diagnostics.CodeAnalysis;
 using System.IO.Compression;
 using System.Reflection;
 using SkiaSharp;
@@ -213,6 +214,7 @@ namespace Froststrap.Integrations
             }
         }
 
+        [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "False positive: the sprite sheet is wrapped in a using statement")]
         private static void RecolorSpriteSheets(
             Color solidColor,
             List<GradientStop>? gradient,

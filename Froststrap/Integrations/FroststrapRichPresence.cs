@@ -4,6 +4,7 @@
 
 using System.Net.Sockets;
 using DiscordRPC;
+using DiscordRPC.IO;
 using DiscordRPC.Logging;
 using RichPresence = DiscordRPC.RichPresence;
 using DiscordRPC.Message;
@@ -25,11 +26,20 @@ namespace Froststrap.Integrations
 
         public FroststrapRichPresence()
         {
-            _rpcClient = new DiscordRpcClient("1399535282713399418", -1, new NullLogger(), true, DiscordIpcPipeClient.Create())
+            INamedPipeClient? pipeClient = DiscordIpcPipeClient.Create();
+            try
             {
-                SkipIdenticalPresence = true,
-                ShutdownOnly = true
-            };
+                _rpcClient = new DiscordRpcClient("1399535282713399418", -1, new NullLogger(), true, pipeClient)
+                {
+                    SkipIdenticalPresence = true,
+                    ShutdownOnly = true
+                };
+                pipeClient = null;
+            }
+            finally
+            {
+                pipeClient?.Dispose();
+            }
 
             _rpcClient.OnReady += OnReady;
 

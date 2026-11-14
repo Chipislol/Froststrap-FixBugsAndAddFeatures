@@ -35,13 +35,22 @@ namespace Froststrap.Integrations
 
         public RobloxServerFetcher()
         {
-            var handler = new SocketsHttpHandler
+            SocketsHttpHandler? handler = new SocketsHttpHandler
             {
                 PooledConnectionLifetime = TimeSpan.FromMinutes(5),
                 MaxConnectionsPerServer = 20
             };
 
-            _client = new HttpClient(handler);
+            try
+            {
+                _client = new HttpClient(handler);
+                handler = null;
+            }
+            finally
+            {
+                handler?.Dispose();
+            }
+
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _client.DefaultRequestHeaders.UserAgent.ParseAdd("Roblox/Froststrap");
         }

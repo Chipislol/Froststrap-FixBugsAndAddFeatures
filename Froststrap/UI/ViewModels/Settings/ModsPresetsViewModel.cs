@@ -700,10 +700,15 @@ namespace Froststrap.UI.ViewModels.Settings
         private void UpdateCursorPathAndPreview(string fileName, string path)
         {
             var image = LoadImageSafely(path);
+
             if (fileName == "MouseLockedCursor.png") { ShiftlockCursorSelectedPath = path; ShiftlockCursorPreview = image; OnPropertyChanged(nameof(ShiftlockCursorPreview)); }
             else if (fileName == "ArrowCursor.png") { ArrowCursorSelectedPath = path; ArrowCursorPreview = image; OnPropertyChanged(nameof(ArrowCursorPreview)); }
             else if (fileName == "ArrowFarCursor.png") { ArrowFarCursorSelectedPath = path; ArrowFarCursorPreview = image; OnPropertyChanged(nameof(ArrowFarCursorPreview)); }
             else if (fileName == "IBeamCursor.png") { IBeamCursorSelectedPath = path; IBeamCursorPreview = image; OnPropertyChanged(nameof(IBeamCursorPreview)); }
+            else
+            {
+                image?.Dispose();
+            }
         }
 
         private void LoadCursorPathsForSelectedSet()

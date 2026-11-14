@@ -23,7 +23,7 @@ namespace Froststrap.UI.ViewModels.Settings.Mods
         Task OpenModGeneratorAsync();
     }
 
-    internal partial class ModsViewModel : NotifyPropertyChangedViewModel
+    internal sealed partial class ModsViewModel : NotifyPropertyChangedViewModel
     {
         private readonly IModsDialogService _dialogService;
 
@@ -953,7 +953,7 @@ namespace Froststrap.UI.ViewModels.Settings.Mods
         }
     }
 
-    internal class DefaultModsDialogService : IModsDialogService
+    internal sealed class DefaultModsDialogService : IModsDialogService
     {
         public Task OpenCommunityModsAsync() => Task.CompletedTask;
         public Task OpenPresetModsAsync() => Task.CompletedTask;

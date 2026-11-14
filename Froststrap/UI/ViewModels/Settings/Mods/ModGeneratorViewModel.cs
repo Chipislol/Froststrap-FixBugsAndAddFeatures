@@ -18,7 +18,7 @@ using Color = Avalonia.Media.Color;
 
 namespace Froststrap.UI.ViewModels.Settings.Mods
 {
-    internal partial class ModGeneratorViewModel : NotifyPropertyChangedViewModel
+    internal sealed partial class ModGeneratorViewModel : NotifyPropertyChangedViewModel
     {
         private Color _solidColor = Colors.White;
 

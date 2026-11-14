@@ -18,7 +18,7 @@ using System.Windows.Input;
 
 namespace Froststrap.UI.ViewModels.Settings
 {
-    internal partial class AppearanceViewModel : NotifyPropertyChangedViewModel
+    internal sealed partial class AppearanceViewModel : NotifyPropertyChangedViewModel
     {
         private static readonly string[] _zipFilter = ["*.zip"];
         private static readonly string[] JsonPatterns = ["*.json"];
@@ -1348,7 +1348,7 @@ namespace Froststrap.UI.ViewModels.Settings
         #endregion
     }
 
-    internal class CustomThemeCycleSelectionWrapper : NotifyPropertyChangedViewModel
+    internal sealed class CustomThemeCycleSelectionWrapper : NotifyPropertyChangedViewModel
     {
         private bool _isSelected;
         private string _themeName = string.Empty;
